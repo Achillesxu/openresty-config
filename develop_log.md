@@ -41,5 +41,5 @@
     
 ## 2018-10-06 openresty-1.13.6.2
     1. 更新openresty版本
-    2. 添加   
+    2. 添加nchan,rtmp, geoip2 动态库 
     
