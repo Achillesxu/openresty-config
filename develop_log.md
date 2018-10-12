@@ -43,3 +43,6 @@
     1. 更新openresty版本
     2. 添加nchan,rtmp, geoip2 动态库 
     
+## 2018-10-12 openresty-1.13.6.2   
+    1. 添加mp4播放路径
+    
