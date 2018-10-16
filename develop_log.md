@@ -49,3 +49,5 @@
 ## 2018-10-12 openresty-1.13.6.2
     1. 添加lua redis读取功能  
     
+## 2018-10-16 openresty-1.13.6.2
+    1. 添加dev_ops_com.conf配置文件     
