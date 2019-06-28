@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # root path
-# this script is for centos
+# this script is for centos7
 BUILD_ROOT=$(dirname $(readlink -f $0))
 
-yum install -y wget curl git subversion make cmake autoconf automake zlib-devel bzip2-devel pcre pcre-devel libxml2 libxml2-devel libxslt-devel openssl-devel gd gd-devel libjpeg-turbo libjpeg-turbo-devel libpng libpng-devel freetype freetype-devel libtiff libtiff-devel libvpx libvpx-devel\
+yum install -y wget curl git subversion make cmake autoconf automake libtool perl-ExtUtils-Embed zlib-devel bzip2-devel pcre pcre-devel libxml2 libxml2-devel libxslt-devel openssl-devel gd gd-devel libjpeg-turbo libjpeg-turbo-devel libpng libpng-devel freetype freetype-devel libtiff libtiff-devel libvpx libvpx-devel\
     ncurses-devel sqlite-devel readline readline-devel tk-devel tcl-devel gdbm-devel xz-devel expat-devel
 # need to install mysql by hand and configure something
 
@@ -11,7 +11,7 @@ CODE_BUILD_PATH=$BUILD_ROOT/resty_build
 #mkdir -p $CODE_BUILD_PATH
 cd $CODE_BUILD_PATH
 
-wget https://openresty.org/download/openresty-1.13.6.2.tar.gz
+wget https://openresty.org/download/openresty-1.15.8.1.tar.gz
 git clone https://github.com/slact/nchan.git nchan
 git clone https://github.com/arut/nginx-rtmp-module.git nginx-rtmp-module
 git clone https://github.com/leev/ngx_http_geoip2_module.git ngx_http_geoip2_module
@@ -25,16 +25,17 @@ make
 make install
 sh -c "echo /usr/local/lib  >> /etc/ld.so.conf.d/local.conf"
 ldconfig
+# please download GeoIP database
 
-tar -zxvf openresty-1.13.6.2.tar.gz
+tar -zxvf openresty-1.15.8.1.tar.gz
 
-RESTY_PATH=$CODE_BUILD_PATH/openresty-1.13.6.2
+RESTY_PATH=$CODE_BUILD_PATH/openresty-1.15.8.1
 
 cd $RESTY_PATH
 
-./configure --prefix='/usr/local/openresty-1.13.6.2' -j4 \
+./configure --prefix='/usr/local/openresty-1.15.8.1' -j4 \
             --with-http_iconv_module \
-            --build='openresty-1.13.6.2 NuoNuo Tech' \
+            --build='openresty-1.15.8.1 NuoNuo Tech' \
             --with-threads \
             --with-file-aio \
             --with-http_v2_module \
@@ -63,4 +64,4 @@ cd $RESTY_PATH
             --add-dynamic-module=$CODE_BUILD_PATH'/ngx_http_geoip2_module'
 gmake
 gmake install
-ln -s /usr/local/openresty-1.13.6.2/nginx/sbin/nginx /usr/sbin/nginx
+ln -s /usr/local/openresty-1.15.8.1/nginx/sbin/nginx /usr/sbin/nginx
