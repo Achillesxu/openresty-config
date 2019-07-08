@@ -8,7 +8,7 @@ yum install -y wget curl git subversion make cmake autoconf automake libtool per
 # need to install mysql by hand and configure something
 
 CODE_BUILD_PATH=$BUILD_ROOT/resty_build
-#mkdir -p $CODE_BUILD_PATH
+mkdir -p $CODE_BUILD_PATH
 cd $CODE_BUILD_PATH
 
 wget https://openresty.org/download/openresty-1.15.8.1.tar.gz

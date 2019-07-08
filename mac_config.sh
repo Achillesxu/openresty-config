@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-./configure --prefix='/usr/local/openresty-1.13.6.2' -j4 --with-http_iconv_module \
+./configure --prefix='/usr/local/openresty-1.15.8.1' --with-http_iconv_module \
     --with-http_postgres_module \
-    --build='openresty-1.13.6.2 achilles_xushy' \
+    --build='openresty-1.15.8.1 achilles_xushy' \
     --with-threads \
-    --with-http_v2_module \
     --with-http_realip_module \
     --with-http_addition_module \
     --with-http_image_filter_module=dynamic \
@@ -22,8 +21,12 @@
     --with-mail=dynamic \
     --with-mail_ssl_module \
     --with-google_perftools_module \
+    --with-stream=dynamic \
+    --with-stream_realip_module \
+    --with-stream_geoip_module=dynamic \
+    --with-stream_ssl_preread_module \
     --add-dynamic-module='/Users/achilles_xushy/Downloads/openresty/nginx-rtmp-module' \
     --add-dynamic-module='/Users/achilles_xushy/Downloads/openresty/ngx_http_geoip2_module' \
-    --add-dynamic-module='/Users/achilles_xushy/Downloads/openresty/nchan-master' \
+    --add-dynamic-module='/Users/achilles_xushy/Downloads/openresty/nchan' \
     --with-cc-opt='-I/usr/local/opt/openssl/include -I/usr/local/opt/pcre/include -I/usr/local/opt/zlib/include' \
     --with-ld-opt='-L/usr/local/opt/openssl/lib -L/usr/local/opt/pcre/lib -L/usr/local/opt/zlib/lib'
